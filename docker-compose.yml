@@ -3,7 +3,7 @@ version: '3.8'
 services:
   opencart:
     image: docker.io/bitnami/opencart:${APP_VERSION}
-    container_name: ${APP_CONTAINER_NAME}
+    container_name: ${APP_NAME}
     ports:
       - ${APP_PORT}:8080
     volumes:
@@ -21,7 +21,7 @@ services:
 
   mysql:
     image: mysql:${DB_MYSQL_VERSION}
-    container_name: opencart-mysql
+    container_name: ${APP_NAME}-db
     restart: always
     ports:
      - ${DB_MYSQL_PORT}:3306
@@ -37,7 +37,7 @@ services:
 
 networks:
   default:
-      name: ${APP_NETWORK}
+      name: ${APP_NAME}
 
 volumes:
   opencart:
