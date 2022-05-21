@@ -10,7 +10,7 @@ services:
       - opencart:/bitnami/opencart
     environment:
       - OPENCART_HOST=opencart
-      - OPENCART_DATABASE_HOST=mysql
+      - OPENCART_DATABASE_HOST=${DB_MYSQL_HOST}
       - OPENCART_DATABASE_PORT_NUMBER=3306
       - OPENCART_DATABASE_USER=${DB_MYSQL_USER}
       - OPENCART_DATABASE_NAME=${DB_MYSQL_NAME}
