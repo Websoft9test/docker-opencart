@@ -20,7 +20,7 @@ services:
       - OPENCART_DATABASE_PASSWORD=${DB_MYSQL_PASSWORD}
       - OPENCART_USERNAME=${APP_USER}
       - OPENCART_PASSWORD=${APP_PASSWORD}
-     -  OPENCART_EMAIL=${EMAIL}
+      - OPENCART_EMAIL=${EMAIL}
     links: 
       - mysql
     restart: always
