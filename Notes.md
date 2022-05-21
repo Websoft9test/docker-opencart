@@ -11,3 +11,6 @@
 ## 疑难
 
 目前还未掌握 OPENCART_HOST 环境变量的使用
+
+OPENCART_HOST 对应服务器IP或者机器名，目前访问混乱的原因是所有静态资源无法访问（js,css,images）。
+需要将OPENCART_HOST配置成IP+映射端口的模式，详见 docker-compose 文件.
