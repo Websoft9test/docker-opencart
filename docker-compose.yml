@@ -1,3 +1,6 @@
+# iamge: https://hub.docker.com/r/bitnami/opencart
+# docs: https://github.com/bitnami/bitnami-docker-opencart
+
 version: '3.8'
 
 services:
