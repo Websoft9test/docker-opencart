@@ -1,4 +1,4 @@
-# opencart on Docker
+# OpenCart on Docker
 
 ![](https://libs.websoft9.com/common/websott9-cloud-installer.png) 
 
@@ -60,7 +60,7 @@ echo "alias docker-compose='docker compose'" >> /etc/profile.d/docker-compose.sh
 source /etc/profile.d/docker-compose.sh
 ```
 
-#### Install opencart
+#### Install OpenCart
 
 We assume that you are already familiar with Docker, and you can modify [docker-compose file](docker-compose.yml) by yourself
 
@@ -87,18 +87,13 @@ You can point your browser to: *`http://Instance's Internet IP:port`*
 
 The following is the information that may be needed during use
 
-#### Services and Ports
-
-| Service | Port | Use |  Necessity |
-| --- | --- | --- | --- |
-| opencart-server | 9001 | Browser access to opencart Document by http | Y |
 ## Documentation
 
-[opencart Administrator Guide](https://support.websoft9.com/docs/opencart)
+[OpenCart Administrator Guide](https://support.websoft9.com/docs/opencart)
 
 ## Enterprise Support
 
-If you want to get our Enterprise Support to ensure high availability of applications, you can subscribe our [opencart Enterprise Support](https://apps.websoft9.com/opencart) 
+If you want to get our Enterprise Support to ensure high availability of applications, you can subscribe our [OpenCart Enterprise Support](https://apps.websoft9.com/opencart) 
 
 What you get with a Enterprise Support subscription?
 

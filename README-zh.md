@@ -1,4 +1,4 @@
-# opencart on Docker
+# OpenCart on Docker
 
 ![](https://libs.websoft9.com/common/websoft9-cloud-installer.png) 
 
@@ -6,7 +6,7 @@
 
 [简体中文](/README-zh.md) | [English](/README.md) 
 
-本项目是由 [Websoft9](https://www.websoft9.com) 研发的 **云原生程序** ，大大简化 opencart 复杂的安装及配置。
+本项目是由 [Websoft9](https://www.websoft9.com) 研发的 **云原生程序** ，大大简化 OpenCart 复杂的安装及配置。
 
 ## 系统要求
 
@@ -64,7 +64,7 @@ echo "alias docker-compose='docker compose'" >> /etc/profile.d/docker-compose.sh
 source /etc/profile.d/docker-compose.sh
 ```
 
-#### 安装 opencart
+#### 安装 OpenCart
 
 直接运行下面的命令快速安装应用。如果你熟悉 Docker，建议先修改 [docker-compose](docker-compose.yml) 文件以满足自己的需求
 
@@ -77,7 +77,7 @@ sudo docker compose up -d
 
 ### 常见问题
 
-#### 安装 opencart 前需要更改密码吗？
+#### 安装 OpenCart 前需要更改密码吗？
 
 是的, 在生产环境中，您应该在 docker-compose 文件中修改所有数据库密码和应用程序密码
 
@@ -93,18 +93,13 @@ sudo docker compose up -d
 
 下面是使用过程中可能需要的信息
 
-#### 服务和端口
-
-| 名称 | 端口号 | 用途 |  必要性 |
-| --- | --- | --- | --- |
-| opencart-server | 9001 | 浏览器访问 opencart | Y |
 ## 文档
 
-[opencart 管理员手册](https://support.websoft9.com/docs/opencart)
+[OpenCart 管理员手册](https://support.websoft9.com/docs/opencart)
 
 ## 企业级支持
 
-如果需要企业级支持，请订阅我们提供的 [opencart 企业级支持版](https://apps.websoft9.com/opencart) 
+如果需要企业级支持，请订阅我们提供的 [OpenCart 企业级支持版](https://apps.websoft9.com/opencart) 
 
 订阅企业级产品后，您可获得：
 
