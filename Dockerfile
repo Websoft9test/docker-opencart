@@ -1,14 +1,18 @@
-# docs: https://community.vtiger.com/help/vtigercrm/administrators/installation.html
-# image: https://hub.docker.com/r/websoft9dev/vtiger
-# refer: https://github.com/mohsentm/vtiger-docker/blob/master/Dockerfile
-
-FROM php:8.0-apache
+FROM php:8.1-apache
 
 LABEL maintainer="help@websoft9.com"
 LABEL version="4.0.1.1"
 LABEL description="OpenCart"
 
+ARG OC_VERSION='4.0.1.1'
+
 ENV INSTALL_DIR /var/www/html
+
+ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
+
+# this step need 5min, should improve it
+RUN chmod +x /usr/local/bin/install-php-extensions && \
+    install-php-extensions gd zip
 
 RUN apt-get update && apt-get upgrade -y; \
     apt-get install -y --no-install-recommends wget unzip zip libc-client-dev libkrb5-dev ghostscript ; \
@@ -17,12 +21,14 @@ RUN apt-get update && apt-get upgrade -y; \
     rm -rf /var/lib/apt/lists/* ; \
     mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
-RUN version='4.0.1.1'; \
-    curl -o opencart.zip -fL "https://github.com/opencart/opencart/releases/download/4.0.1.1/opencart-$version.zip"; \
+# Opencart Dashbord need mv storage folder to /var/www, so chmod before
+RUN curl -o opencart.zip -fL "https://github.com/opencart/opencart/releases/download/$OC_VERSION/opencart-$OC_VERSION.zip"; \
     unzip opencart.zip -d opencart; \
     cp -r opencart/upload/* $INSTALL_DIR; \
     rm -rf opencart.zip opencart;\
-    chmod -R 777 $INSTALL_DIR
+    cp $INSTALL_DIR/config-dist.php $INSTALL_DIR/config.php ; \
+    cp $INSTALL_DIR/admin/config-dist.php $INSTALL_DIR/admin/config.php ; \
+    chmod -R 777 /var/www
 
 RUN sed -i "s/Options Indexes FollowSymLinks/Options FollowSymLinks/" /etc/apache2/apache2.conf
 
