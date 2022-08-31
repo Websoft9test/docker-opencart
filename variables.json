@@ -1,9 +1,8 @@
 {
   "name": "opencart",
-  "trademark": "opencart",
+  "trademark": "OpenCart",
   "installpath": "/data/wwwroot/opencart",
   "compose_file": "docker-compose.yml",
-  "fork_url": "https://github.com/bitnami/bitnami-docker-opencart",
   "env_file": ".env",
   "requirements":{
     "cpu_arch": "Linux x86-64, ARM 32/64, Windows x86-64, IBM POWER8, x86/i686",
@@ -13,16 +12,6 @@
     "swap": "2",
     "url": "https://www.opencart.org/docs/user_guide/en/install-requirements.html"
   },
-
-  "services":[
-    {
-      "name": "opencart-server",
-      "port": "9001",
-      "description_cn": "浏览器访问 opencart",
-      "description_en": "Browser access to opencart Document by http",
-      "required": "Y"
-    }
-  ],
 
   "faqs": [
     {
