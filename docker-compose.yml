@@ -10,7 +10,7 @@ services:
     ports:
      - ${APP_HTTP_PORT}:80
     volumes:
-      - opencart:/var/www
+      - opencart:/var/www/html
     restart: always
 
   mysql:
