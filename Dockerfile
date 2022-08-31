@@ -11,13 +11,12 @@ ENV INSTALL_DIR /var/www/html
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 
 # this step need 5min, should improve it
-RUN chmod +x /usr/local/bin/install-php-extensions && \
-    install-php-extensions gd zip
+# RUN chmod +x /usr/local/bin/install-php-extensions && install-php-extensions gd zip
 
 RUN apt-get update && apt-get upgrade -y; \
     apt-get install -y --no-install-recommends wget unzip zip libc-client-dev libkrb5-dev ghostscript ; \
     docker-php-ext-configure imap --with-kerberos --with-imap-ssl ; \
-    docker-php-ext-install -j "$(nproc)"  imap bcmath opcache exif mysqli ; \
+    docker-php-ext-install -j "$(nproc)"  imap gd zip bcmath opcache exif mysqli ; \
     rm -rf /var/lib/apt/lists/* ; \
     mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
