@@ -1,5 +1,4 @@
 # iamge: base on Dockerhub php image
-# /var/www for volume becuase Dashboard need to move storage folder to it
 
 version: '3.8'
 
