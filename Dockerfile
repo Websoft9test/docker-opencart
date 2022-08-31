@@ -53,6 +53,6 @@ RUN { \
         echo 'opcache.enable_cli=1'; \
 } > /usr/local/etc/php/conf.d/opcache-recommended.ini
 
-VOLUME ["$INSTALL_DIR"]
+VOLUME ["/var/www"]
 
 WORKDIR $INSTALL_DIR
