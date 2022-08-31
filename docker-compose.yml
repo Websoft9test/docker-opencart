@@ -1,28 +1,16 @@
-# iamge: https://hub.docker.com/r/bitnami/opencart
-# docs: https://github.com/bitnami/bitnami-docker-opencart
+# iamge: base on Dockerhub php image
+# /var/www for volume becuase Dashboard need to move storage folder to it
 
 version: '3.8'
 
 services:
   opencart:
-    image: docker.io/bitnami/opencart:${APP_VERSION}
+    image: websoft9dev/opencart:${APP_VERSION}
     container_name: ${APP_NAME}
     ports:
-      - ${APP_PORT}:8080
+     - ${APP_HTTP_PORT}:80
     volumes:
-      - opencart:/bitnami/opencart
-    environment:
-      - OPENCART_HOST=${APP_URL}:${APP_PORT}
-      - OPENCART_DATABASE_HOST=${DB_MYSQL_HOST}
-      - OPENCART_DATABASE_PORT_NUMBER=3306
-      - OPENCART_DATABASE_USER=${DB_MYSQL_USER}
-      - OPENCART_DATABASE_NAME=${DB_MYSQL_NAME}
-      - OPENCART_DATABASE_PASSWORD=${DB_MYSQL_PASSWORD}
-      - OPENCART_USERNAME=${APP_USER}
-      - OPENCART_PASSWORD=${APP_PASSWORD}
-      - OPENCART_EMAIL=${APP_EMAIL}
-    links: 
-      - mysql
+      - opencart:/var/www
     restart: always
 
   mysql:
