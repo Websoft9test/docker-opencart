@@ -2,6 +2,14 @@
 
 已经弃用 Bitnami 镜像，改用自行开发的 Dockerfile
 
+## 常见问题
+
+#### Dashboard 要求转移 storage 文件夹，可以吗？
+不可以，会导致 storage 权限发生变化，从而出现代码错误
+
+#### 可以将 /var/www 设置为 volume 吗？
+不可以，会导致代码错误
+
 ## Bitnami 归档
 
 直接运行 Bitnami 中的 docker-compose 文件，首页乱码。
