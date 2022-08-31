@@ -25,8 +25,8 @@ RUN curl -o opencart.zip -fL "https://github.com/opencart/opencart/releases/down
     unzip opencart.zip -d opencart; \
     cp -r opencart/upload/* $INSTALL_DIR; \
     rm -rf opencart.zip opencart;\
-    cp $INSTALL_DIR/config-dist.php $INSTALL_DIR/config.php ; \
-    cp $INSTALL_DIR/admin/config-dist.php $INSTALL_DIR/admin/config.php ; \
+    mv $INSTALL_DIR/config-dist.php $INSTALL_DIR/config.php ; \
+    mv $INSTALL_DIR/admin/config-dist.php $INSTALL_DIR/admin/config.php ; \
     chmod -R 777 /var/www
 
 RUN sed -i "s/Options Indexes FollowSymLinks/Options FollowSymLinks/" /etc/apache2/apache2.conf
