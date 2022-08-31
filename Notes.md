@@ -1,14 +1,14 @@
 # OpenCart
 
-采用 Bitnami OpenCart 镜像
+已经弃用 Bitnami 镜像，改用自行开发的 Dockerfile
 
-## 安装
+## Bitnami 归档
 
 直接运行 Bitnami 中的 docker-compose 文件，首页乱码。
 
 已经向官方提供issue：https://github.com/bitnami/bitnami-docker-opencart/issues/102
 
-## 疑难
+**疑难**
 
 目前还未掌握 OPENCART_HOST 环境变量的使用
 
