@@ -1,4 +1,4 @@
-# iamge: base on Dockerhub php image
+# image: base on Dockerhub php image
 
 version: '3.8'
 
@@ -11,6 +11,17 @@ services:
     volumes:
       - opencart:/var/www/html
     restart: always
+    environment:
+      MYSQL_DATABASE: ${DB_MYSQL_NAME}
+      MYSQL_USER: ${DB_MYSQL_USER}
+      MYSQL_PASSWORD: ${DB_MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_MYSQL_PASSWORD}
+      MYSQL_HOST: ${DB_MYSQL_HOST}
+    links: 
+      - mysql
+    command: bash -c "cat /my_cmd > /cmd.sh && chmod +x /cmd.sh && /cmd.sh"
+    configs:
+      - source: my_cmd
 
   mysql:
     image: mysql:${DB_MYSQL_VERSION}
@@ -35,3 +46,7 @@ networks:
 volumes:
   opencart:
   mysql_data:
+
+configs:
+  my_cmd:
+    file: ./cmd.sh
